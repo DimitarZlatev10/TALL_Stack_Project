@@ -9,7 +9,9 @@
 </head>
 
 <body>
+    <livewire:nav-bar />
     {{ $slot }}
+    <livewire:footer />
 </body>
 
 </html>
