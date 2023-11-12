@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\SessionsController;
 use App\Livewire\About;
 use App\Livewire\Home;
+use App\Livewire\Login;
+use App\Livewire\Register;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Home::class);
 Route::get('/about', About::class);
+Route::get('/login', Login::class)->middleware('guest');
+Route::get('/register', Register::class)->middleware('guest');
+Route::get('/logout', [SessionsController::class, 'destroy']);

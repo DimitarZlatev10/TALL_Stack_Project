@@ -6,10 +6,21 @@
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white italic">Z&P
                     Watches</span>
             </a>
-            <div class="flex items-center space-x-6 rtl:space-x-reverse">
-                <a href="#" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Login</a>
-                <a href="#" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Register</a>
-            </div>
+
+            @auth
+                <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                    <p>Welcome, {{ auth()->user()->name }}!</p>
+                    <a wire:navigate href="/logout"
+                        class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Logout</a>
+                </div>
+            @else
+                <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                    <a wire:navigate.hover href="/login"
+                        class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Login</a>
+                    <a wire:navigate.hover href="/register"
+                        class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Register</a>
+                </div>
+            @endauth
         </div>
     </nav>
     <nav class="bg-gray-50 dark:bg-gray-700">
