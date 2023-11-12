@@ -36,7 +36,8 @@
                             us</a>
                     </li>
                     <li>
-                        <a href="#" class="text-gray-900 dark:text-white hover:underline">Team</a>
+                        <a wire:navigate.hover href="/watches"
+                            class="text-gray-900 dark:text-white hover:underline">Watches</a>
                     </li>
                     <li>
                         <a href="#" class="text-gray-900 dark:text-white hover:underline">Features</a>
