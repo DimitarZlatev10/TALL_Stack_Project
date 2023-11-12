@@ -44,8 +44,8 @@
                             more</a> --}}
                     </div>
                     <div class="mb-12 lg:mb-0">
-                        <img src="pictures/g-shock.avif" class="w-full rounded-lg shadow-lg dark:shadow-black/20"
-                            alt="" />
+                        <img src="pictures/g-shock.avif" width="700" height="700"
+                            class="w-full rounded-lg shadow-lg dark:shadow-black/20" alt="" />
                     </div>
                 </div>
             </div>

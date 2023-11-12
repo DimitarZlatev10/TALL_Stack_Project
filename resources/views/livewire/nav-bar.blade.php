@@ -10,8 +10,7 @@
             @auth
                 <div class="flex items-center space-x-6 rtl:space-x-reverse">
                     <p>Welcome, {{ auth()->user()->name }}!</p>
-                    <a wire:navigate href="/logout"
-                        class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Logout</a>
+                    <a href="/logout" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Logout</a>
                 </div>
             @else
                 <div class="flex items-center space-x-6 rtl:space-x-reverse">

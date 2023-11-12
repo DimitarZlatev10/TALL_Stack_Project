@@ -29,12 +29,14 @@
                                     class="w-full px-4 py-3 mt-2 bg-white rounded-lg dark:text-gray-100 dark:bg-gray-800 dark:border dark:border-gray-800"
                                     name="" placeholder="Enter your name">
                                 @error('name')
-                                    <span class="text-red-500">{{ $message }}</span>
+                                    <span
+                                        class="text-red-500
+                                    ">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mt-5">
                                 <label for="" class="block text-gray-700 dark:text-gray-300">Email:</label>
-                                <input type="email" wire:model='email'
+                                <input wire:model='email'
                                     class="w-full px-4 py-3 mt-2 bg-white rounded-lg dark:text-gray-100 dark:bg-gray-800 dark:border dark:border-gray-800"
                                     name="" placeholder="Enter your email">
                                 @error('email')
