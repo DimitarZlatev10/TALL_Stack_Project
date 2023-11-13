@@ -4,8 +4,10 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Register Page')]
 class Register extends Component
 {
     public $email, $password, $repeatPassword, $name;

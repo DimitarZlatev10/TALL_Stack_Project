@@ -7,21 +7,34 @@
                     <div class="z-10 w-full p-10 bg-gray-100 dark:bg-gray-900 h-100">
                         <h2 class="text-xl font-bold leading-tight mb-7 md:text-3xl dark:text-gray-300">
                             Login to your account</h2>
-                        <form action="" class="mt-6">
+                        @if (session('error'))
+                            <p class="text-red-500 text-lg"> {{ session('error') }} </p>
+                        @endif
+                        <form wire:submit.prevent='login' class="mt-6">
                             <div>
                                 <label for="" class="block text-gray-700 dark:text-gray-300">Email:</label>
-                                <input type="email"
+                                <input wire:model='email'
                                     class="w-full px-4 py-3 mt-2 bg-white rounded-lg dark:text-gray-100 dark:bg-gray-800 dark:border dark:border-gray-800"
                                     name="" placeholder="Enter your email">
+                                @error('email')
+                                    <span
+                                        class="text-red-500
+                                    ">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mt-5">
                                 <div>
                                     <label for="" class="text-gray-700 dark:text-gray-300 ">Password:</label>
                                     <div class="relative flex items-center mt-2">
-                                        <input type="password"
+                                        <input type="password" wire:model='password'
                                             class="w-full px-4 py-3 bg-white rounded-lg dark:text-gray-400 dark:bg-gray-800 dark:border dark:border-gray-800 "
                                             name="" placeholder="Enter password">
                                     </div>
+                                    @error('password')
+                                        <span
+                                            class="text-red-500
+                                            ">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="mt-4 text-right">

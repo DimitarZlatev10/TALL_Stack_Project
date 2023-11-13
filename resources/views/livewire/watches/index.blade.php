@@ -1,5 +1,6 @@
 <section class="flex items-center bg-gray-100 dark:bg-gray-800">
     <div class="p-4 mx-auto max-w-7xl">
+        <h1 class="text-center text-4xl mb-10">Our Watch Collection!</h1>
         <div class="grid grid-cols-1 gap-4 lg:gap-4 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
             @foreach ($watches as $watch)
                 <div class="mt-56 bg-white rounded shadow dark:bg-gray-700">

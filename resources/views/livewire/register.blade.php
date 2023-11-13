@@ -1,6 +1,6 @@
 <div>
 
-    <div class="col-md-12">
+    {{-- <div class="col-md-12">
         @if (session()->has('message'))
             <div class="alert alert-success">
                 {{ session('message') }}
@@ -11,7 +11,7 @@
                 {{ session('error') }}
             </div>
         @endif
-    </div>
+    </div> --}}
 
     <section class=" font-poppins">
         <div class="max-w-6xl px-0 mx-auto lg:px-6">
