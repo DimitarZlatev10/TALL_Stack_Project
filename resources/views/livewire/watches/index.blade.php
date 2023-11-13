@@ -38,11 +38,11 @@
                             </h2>
                         </a>
                         <p class="mb-3 text-lg font-bold text-blue-500 dark:text-blue-300 ">
-                            <span>$150.00</span>
+                            <span>${{ $watch->price }}</span>
                             {{-- <span class="text-xs font-semibold text-gray-400 line-through ">$200.00</span> --}}
                         </p>
                         <div class="flex gap-1 text-orange-400">
-                            Category
+                            {{ $watch->category->slug }}
                         </div>
                     </div>
                 </div>

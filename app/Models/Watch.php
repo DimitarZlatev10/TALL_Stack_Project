@@ -9,5 +9,10 @@ class Watch extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['slug', 'title', 'excerpt', 'body'];
+    protected $fillable = ['slug', 'title', 'excerpt', 'body', 'category_id'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
