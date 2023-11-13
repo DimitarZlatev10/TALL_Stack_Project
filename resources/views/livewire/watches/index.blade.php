@@ -5,8 +5,8 @@
                 <div class="mt-56 bg-white rounded shadow dark:bg-gray-700">
                     <div class="relative z-20 p-6 group">
                         <div class="relative block h-64 mb-4 -mt-56 overflow-hidden rounded -top-full">
-                            <img class="object-cover transition-all group-hover:scale-110" src="pictures/g-shock.avif"
-                                width="252" height="256" alt="">
+                            <img class="object-cover w-full h-full transition-all group-hover:scale-110"
+                                src="pictures/g-shock.avif" width="252" height="256" alt="">
                             <div class="absolute flex flex-col top-4 right-4">
                                 <a href="#" class="flex items-center">
                                     <div
@@ -32,7 +32,7 @@
                                 </a>
                             </div>
                         </div>
-                        <a href="#">
+                        <a wire:navigate href="/watches/{{ $watch->slug }}">
                             <h2 class="mb-2 text-xl font-bold text-black dark:text-white">
                                 {{ $watch->title }}
                             </h2>

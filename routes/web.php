@@ -6,6 +6,8 @@ use App\Livewire\Home;
 use App\Livewire\Login;
 use App\Livewire\Register;
 use App\Livewire\Watches\Index;
+use App\Livewire\Watches\Show;
+use App\Models\Watch;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +28,4 @@ Route::get('/register', Register::class)->middleware('guest');
 Route::get('/logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 Route::get('/watches', Index::class);
+Route::get('/watches/{watch:slug}', Show::class);
