@@ -2,17 +2,28 @@
     <div class="bg-gray-100 dark:bg-gray-800">
         <div class="p-4 mx-auto max-w-7xl">
             <h1 class="text-center text-4xl my-5">Our Watch Collection!</h1>
-            <div class="relative">
-                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                    </svg>
+            {{-- <h2 class="text-center text-4xl my-5">{{ $watches->total() }} total products</h2> --}}
+            <div class="flex-col items-center md:flex md:justify-between md:flex-row">
+                <div class="relative">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                        </svg>
+                    </div>
+                    <input wire:model.live.debounce.500ms='search'
+                        class="block sm:w-96 w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Search for a specific watch...">
                 </div>
-                <input wire:model.live.debounce.500ms='search'
-                    class="block sm:w-96 w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Search for a specific watch...">
+
+                <select wire:model.live='category'
+                    class="block sm:w-44 w-full px-4 py-3 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value='' selected>Choose a brand</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
     </div>
@@ -51,7 +62,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <a wire:navigate href="/watches/{{ $watch->slug }}">
+                            <a wire:navigate.hover href="/watches/{{ $watch->slug }}">
                                 <h2 class="mb-2 text-xl font-bold text-black dark:text-white">
                                     {{ $watch->title }}
                                 </h2>
@@ -61,7 +72,7 @@
                                 {{-- <span class="text-xs font-semibold text-gray-400 line-through ">$200.00</span> --}}
                             </p>
                             <div class="flex gap-1 text-orange-400">
-                                {{ $watch->category->slug }}
+                                {{ $watch->category->name }}
                             </div>
                         </div>
                     </div>

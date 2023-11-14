@@ -2,7 +2,9 @@
 
 namespace App\Livewire\Watches;
 
+use App\Models\Category;
 use App\Models\Watch;
+use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -12,7 +14,9 @@ class Index extends Component
 {
     use WithPagination;
     public $search = '';
+    public $category = '';
 
+    public $perPage = 12;
     public function updatingSearch()
     {
         $this->resetPage();
@@ -20,8 +24,20 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.watches.index', [
-            'watches' => Watch::where('title', 'like', '%' . $this->search . '%')->paginate(12),
-        ]);
+        if ($this->category == '') {
+            return view('livewire.watches.index', [
+                // 'watches' => Watch::where('title', 'like', '%' . $this->search . '%')->paginate($this->perPage),
+                'watches' => Watch::where('title', 'like', '%' . $this->search . '%')->paginate(12),
+                'categories' => Category::all(),
+            ]);
+        } else {
+            return view('livewire.watches.index', [
+                // 'watches' => Watch::where('title', 'like', '%' . $this->search . '%')->paginate($this->perPage),
+                'watches' => Watch::where('title', 'like', '%' . $this->search . '%')
+                    ->where('category_id', $this->category)
+                    ->paginate(12),
+                'categories' => Category::all(),
+            ]);
+        }
     }
 }

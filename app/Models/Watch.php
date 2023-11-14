@@ -9,7 +9,7 @@ class Watch extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['slug', 'title', 'excerpt', 'body', 'category_id'];
+    protected $fillable = ['slug', 'title', 'excerpt', 'body', 'category_id', 'price'];
 
     protected $with = ['category'];
     public function category()
