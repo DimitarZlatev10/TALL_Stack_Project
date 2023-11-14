@@ -71,4 +71,7 @@
             </div>
         </div>
     </section>
+    <div class="p-4 mx-auto max-w-7xl">
+        {{ $watches->links('livewire.pagination-links') }}
+    </div>
 </div>
