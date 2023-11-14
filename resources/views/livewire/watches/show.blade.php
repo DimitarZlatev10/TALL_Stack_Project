@@ -5,35 +5,35 @@
                 <div class="w-full px-4 md:w-1/2 ">
                     <div class="sticky top-0 z-50 overflow-hidden ">
                         <div class="relative mb-6 lg:mb-10 lg:h-2/4 ">
-                            <img src="pictures/g-shock.avif" width="536" height="670" alt=""
+                            <img src="/pictures/g-shock.avif" width="536" height="670" alt=""
                                 class="object-cover w-full lg:h-full ">
                         </div>
                         <div class="flex-wrap hidden md:flex ">
                             <div class="w-1/2 p-2 sm:w-1/4">
                                 <a href="#"
                                     class="block border border-blue-300 dark:border-transparent dark:hover:border-blue-300 hover:border-blue-300">
-                                    <img src="pictures/g-shock.avif" alt="" width="116" height="80"
+                                    <img src="/pictures/g-shock.avif" alt="" width="116" height="80"
                                         class="object-cover w-full lg:h-20">
                                 </a>
                             </div>
                             <div class="w-1/2 p-2 sm:w-1/4">
                                 <a href="#"
                                     class="block border border-transparent dark:border-transparent dark:hover:border-blue-300 hover:border-blue-300">
-                                    <img src="pictures/g-shock.avif" alt="" width="116" height="80"
+                                    <img src="/pictures/g-shock.avif" alt="" width="116" height="80"
                                         class="object-cover w-full lg:h-20">
                                 </a>
                             </div>
                             <div class="w-1/2 p-2 sm:w-1/4">
                                 <a href="#"
                                     class="block border border-transparent dark:border-transparent dark:hover:border-blue-300 hover:border-blue-300">
-                                    <img src="pictures/g-shock.avif" alt="" width="116" height="80"
+                                    <img src="/pictures/g-shock.avif" alt="" width="116" height="80"
                                         class="object-cover w-full lg:h-20">
                                 </a>
                             </div>
                             <div class="w-1/2 p-2 sm:w-1/4">
                                 <a href="#"
                                     class="block border border-transparent dark:border-transparent dark:hover:border-blue-300 hover:border-blue-300">
-                                    <img src="pictures/g-shock.avif" alt="" width="116" height="80"
+                                    <img src="/pictures/g-shock.avif" alt="" width="116" height="80"
                                         class="object-cover w-full lg:h-20">
                                 </a>
                             </div>

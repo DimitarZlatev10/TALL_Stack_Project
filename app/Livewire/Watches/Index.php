@@ -9,10 +9,12 @@ use Livewire\Component;
 #[Title('All Watches')]
 class Index extends Component
 {
+    public $search = '';
+
     public function render()
     {
         return view('livewire.watches.index', [
-            'watches' => Watch::all(),
+            'watches' => Watch::where('title', 'like', '%' . $this->search . '%')->get(),
         ]);
     }
 }
