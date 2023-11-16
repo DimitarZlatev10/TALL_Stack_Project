@@ -3,7 +3,7 @@
         <div class="p-4 mx-auto max-w-7xl">
             <h1 class="text-center text-4xl my-5">Our Watch Collection!</h1>
             <h2 class="text-center text-4xl my-5">{{ $watches->total() }} total products</h2>
-            <div class="flex-col items-center md:flex md:justify-between md:flex-row">
+            <div class="flex-col items-center lg:flex lg:justify-between lg:flex-row">
                 <div class="relative">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
@@ -13,11 +13,11 @@
                         </svg>
                     </div>
                     <input wire:model.live.debounce.500ms='search'
-                        class="block sm:w-96 w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="block lg:w-96 w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Search for a specific watch...">
                 </div>
 
-                <div class="flex md:mt-0 mt-5">
+                <div class="flex md:mt-0 mt-5 min-[320px]:  max-[620px]:flex-col items-center [&>*]:lg:mt-0 [&>*]:mt-4">
                     <select wire:model.live='perPage'
                         class="block w-20 px-4 py-3 mr-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option value="8" selected>8</option>
@@ -26,13 +26,24 @@
                         <option value="20">20</option>
                     </select>
 
+                    <select wire:model.live='sortByPrice'
+                        class="block w-40 px-4 py-3 mr-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="asc" selected>Lowest Price</option>
+                        <option value="desc">Highest Price</option>
+                    </select>
+
                     <select wire:model.live='category'
-                        class="block w-44 px-4 py-3 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        class="block w-44 px-4 py-3 mr-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option value='' selected>Choose a brand</option>
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            <option value="{{ $category->name }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
+                    <button wire:click='resetFilters' type="button"
+                        class=" text-white bg-red-700 hover:bg-red-800
+                          font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-red-600
+                          dark:hover:bg-red-700 ">Clear
+                        Filters</button>
                 </div>
 
             </div>
@@ -40,8 +51,7 @@
     </div>
     <section class="flex items-center bg-gray-100 dark:bg-gray-800">
         <div class="p-4 mx-auto max-w-7xl">
-
-            <div class="grid grid-cols-1 gap-4 lg:gap-4 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @forelse ($watches as $watch)
                     <div class="mt-56 bg-white rounded shadow dark:bg-gray-700">
                         <div class="relative z-20 p-6 group">
@@ -80,10 +90,12 @@
                             </a>
                             <p class="mb-3 text-lg font-bold text-blue-500 dark:text-blue-300 ">
                                 <span>${{ $watch->price }}</span>
-                                {{-- <span class="text-xs font-semibold text-gray-400 line-through ">$200.00</span> --}}
                             </p>
-                            <div class="flex gap-1 text-orange-400">
-                                {{ $watch->category->name }}
+                            <div class="flex gap-1 text-white">
+                                <button class="p-2 rounded-2xl bg-orange-500" type="button"
+                                    wire:click='filterCategory("{{ $watch->category->name }}")'>
+                                    {{ $watch->category->name }}
+                                </button>
                             </div>
                         </div>
                     </div>
