@@ -26,7 +26,14 @@ class Index extends Component
         $this->category = '';
         $this->perPage = '8';
         $this->sortByPrice = 'asc';
+        $this->resetPage();
     }
+
+    public function resetPages()
+    {
+        $this->resetPage();
+    }
+
     public function updatingSearch()
     {
         $this->resetPage();
@@ -38,20 +45,8 @@ class Index extends Component
         $this->resetPage();
     }
 
-    public function sort()
-    {
-        return view('livewire.watches.index', [
-            'watches' => Watch::orderBy('price', $this->sortByPrice)
-                ->where('title', 'like', '%' . $this->search . '%')
-                ->where('category_id', $this->category)
-                ->paginate($this->perPage),
-            'categories' => Category::all(),
-        ]);
-    }
-
     public function render()
     {
-        // dd(Watch::whereRelation('category', 'name', 'vitae')->get());
         if ($this->category == '') {
             return view('livewire.watches.index', [
                 'watches' => Watch::orderBy('price', $this->sortByPrice)
@@ -64,7 +59,6 @@ class Index extends Component
                 $this->resetPage(),
                 'watches' => Watch::orderBy('price', $this->sortByPrice)
                     ->where('title', 'like', '%' . $this->search . '%')
-                    // ->where('category_id', $this->category)
                     ->whereRelation('category', 'name', $this->category)
                     ->paginate($this->perPage),
                 'categories' => Category::all(),

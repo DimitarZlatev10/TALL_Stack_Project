@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="flex md:mt-0 mt-5 min-[320px]:  max-[620px]:flex-col items-center [&>*]:lg:mt-0 [&>*]:mt-4">
-                    <select wire:model.live='perPage'
+                    <select wire:change='resetPages' wire:model.live='perPage'
                         class="block w-20 px-4 py-3 mr-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option value="8" selected>8</option>
                         <option value="12">12</option>
@@ -26,7 +26,7 @@
                         <option value="20">20</option>
                     </select>
 
-                    <select wire:model.live='sortByPrice'
+                    <select wire:change='resetPages' wire:model.live='sortByPrice'
                         class="block w-40 px-4 py-3 mr-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option value="asc" selected>Lowest Price</option>
                         <option value="desc">Highest Price</option>
