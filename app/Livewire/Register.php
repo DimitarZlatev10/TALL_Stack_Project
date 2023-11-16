@@ -16,7 +16,7 @@ class Register extends Component
     {
         $v = $this->validate([
             'name' => 'required|min:2',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email:rfc,dns|unique:users,email',
             'password' => 'required|min:6',
         ]);
 

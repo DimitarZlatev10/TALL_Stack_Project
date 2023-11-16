@@ -2,7 +2,7 @@
     <div class="bg-gray-100 dark:bg-gray-800">
         <div class="p-4 mx-auto max-w-7xl">
             <h1 class="text-center text-4xl my-5">Our Watch Collection!</h1>
-            {{-- <h2 class="text-center text-4xl my-5">{{ $watches->total() }} total products</h2> --}}
+            <h2 class="text-center text-4xl my-5">{{ $watches->total() }} total products</h2>
             <div class="flex-col items-center md:flex md:justify-between md:flex-row">
                 <div class="relative">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -17,13 +17,24 @@
                         placeholder="Search for a specific watch...">
                 </div>
 
-                <select wire:model.live='category'
-                    class="block sm:w-44 w-full px-4 py-3 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value='' selected>Choose a brand</option>
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
+                <div class="flex md:mt-0 mt-5">
+                    <select wire:model.live='perPage'
+                        class="block w-20 px-4 py-3 mr-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="8" selected>8</option>
+                        <option value="12">12</option>
+                        <option value="16">16</option>
+                        <option value="20">20</option>
+                    </select>
+
+                    <select wire:model.live='category'
+                        class="block w-44 px-4 py-3 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value='' selected>Choose a brand</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
             </div>
         </div>
     </div>

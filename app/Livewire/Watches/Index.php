@@ -15,8 +15,7 @@ class Index extends Component
     use WithPagination;
     public $search = '';
     public $category = '';
-
-    public $perPage = 12;
+    public $perPage = '';
     public function updatingSearch()
     {
         $this->resetPage();
@@ -27,7 +26,7 @@ class Index extends Component
         if ($this->category == '') {
             return view('livewire.watches.index', [
                 // 'watches' => Watch::where('title', 'like', '%' . $this->search . '%')->paginate($this->perPage),
-                'watches' => Watch::where('title', 'like', '%' . $this->search . '%')->paginate(12),
+                'watches' => Watch::where('title', 'like', '%' . $this->search . '%')->paginate($this->perPage),
                 'categories' => Category::all(),
             ]);
         } else {
@@ -35,7 +34,7 @@ class Index extends Component
                 // 'watches' => Watch::where('title', 'like', '%' . $this->search . '%')->paginate($this->perPage),
                 'watches' => Watch::where('title', 'like', '%' . $this->search . '%')
                     ->where('category_id', $this->category)
-                    ->paginate(12),
+                    ->paginate($this->perPage),
                 'categories' => Category::all(),
             ]);
         }
