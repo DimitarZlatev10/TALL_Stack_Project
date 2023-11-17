@@ -21,14 +21,7 @@
             </div>
         </section>
     @endif
-    <!-- Section: Design Block -->
     <section class="mb-40">
-
-        <!-- Navbar -->
-
-        <!-- Navbar -->
-
-        <!-- Jumbotron -->
         <div class="bg-neutral-50 px-6 py-12 text-center dark:bg-neutral-900 md:px-12 lg:text-left">
             <div class="w-100 mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
                 <div class="grid items-center gap-12 lg:grid-cols-2">
@@ -40,9 +33,6 @@
                             data-te-ripple-init data-te-ripple-color="light" wire:navigate.hover href="/watches"
                             role="button">Browse our
                             collection</a>
-                        {{-- <a class="inline-block rounded px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-500 hover:bg-opacity-10 hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 dark:hover:bg-neutral-800 dark:hover:bg-opacity-60"
-                            data-te-ripple-init data-te-ripple-color="light" href="#!" role="button">Learn
-                            more</a> --}}
                     </div>
                     <div class="mb-12 lg:mb-0">
                         <img src="pictures/g-shock.avif" width="700" height="700"

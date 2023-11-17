@@ -12,6 +12,9 @@
 
 <body>
     <livewire:nav-bar />
+    @unless (Request::is('/'))
+        {{ Breadcrumbs::render() }}
+    @endunless
     {{ $slot }}
     <livewire:footer />
 </body>
