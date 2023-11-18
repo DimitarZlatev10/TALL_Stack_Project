@@ -23,6 +23,12 @@ Breadcrumbs::for('register', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Register', route('register'));
 });
+
+Breadcrumbs::for('cart', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Cart', route('cart'));
+});
+
 Breadcrumbs::for('watch', function (BreadcrumbTrail $trail, Watch $watch) {
     $trail->parent('watches');
     $trail->push($watch->title, route('watch', $watch));

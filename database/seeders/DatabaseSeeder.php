@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'John Doe',
         ]);
 
-        Watch::factory(30)->create();
+        Watch::factory(10)->create();
     }
 }
