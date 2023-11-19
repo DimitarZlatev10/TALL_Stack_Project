@@ -8,7 +8,7 @@
                             <img src="/pictures/g-shock.avif" width="536" height="670" alt=""
                                 class="object-cover w-full lg:h-full ">
                         </div>
-                        <div class="flex-wrap hidden md:flex ">
+                        <div class="flex-wrap hidden md:flex">
                             <div class="w-1/2 p-2 sm:w-1/4">
                                 <a href="#"
                                     class="block border border-blue-300 dark:border-transparent dark:hover:border-blue-300 hover:border-blue-300">
@@ -89,14 +89,26 @@
                                     </button>
                                 </div>
                             </div>
-
+                            @if (session('success'))
+                                <p class="mb-1 text-lg font-bold text-green-500 dark:text-gray-300">
+                                    {{ session('success') }}</p>
+                            @endif
                             <div class="flex flex-wrap items-center -mx-4 ">
-                                <div class="w-full px-4 mb-4 lg:w-1/2 lg:mb-0">
-                                    <button
-                                        class="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
-                                        Add to Cart
-                                    </button>
-                                </div>
+                                @if ($alreadyAdded)
+                                    <div class="w-full px-4 mb-4 lg:w-1/2 lg:mb-0">
+                                        <button wire:click.debounce.500ms='removeFromCart'
+                                            class="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
+                                            Remove from Cart
+                                        </button>
+                                    </div>
+                                @else
+                                    <div class="w-full px-4 mb-4 lg:w-1/2 lg:mb-0">
+                                        <button wire:click.debounce.500ms='addToCart'
+                                            class="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                @endif
                                 <div class="w-full px-4 mb-4 lg:mb-0 lg:w-1/2">
                                     <button
                                         class="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
@@ -105,7 +117,7 @@
                                 </div>
                             </div>
                         @else
-                            <p>Log in to purchase this product</p>
+                            <p><a class="text-blue-400" wire:navigate.hover href="/login">Login</a> for more options </p>
                         @endauth
                     </div>
                 </div>

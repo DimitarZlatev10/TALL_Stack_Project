@@ -10,8 +10,7 @@
                 <div class="flex items-center space-x-6 rtl:space-x-reverse">
                     <p>Welcome, {{ auth()->user()->name }}!</p>
                     <a href="/logout" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Logout</a>
-                    <a wire:navigate.hover href="/cart"
-                        class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Cart</a>
+                    <a wire:navigate href="/cart" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Cart</a>
                 </div>
             @else
                 <div class="flex items-center space-x-6 rtl:space-x-reverse">

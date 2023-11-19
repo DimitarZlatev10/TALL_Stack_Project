@@ -20,7 +20,7 @@ class WatchFactory extends Factory
         return [
             'category_id' => Category::factory(),
             'title' => $this->faker->sentence,
-            'slug' => $this->faker->slug,
+            'slug' => $this->faker->unique()->slug,
             'price' => $this->faker->randomFloat(2, 100, 1000),
             'excerpt' => implode($this->faker->paragraphs(2)),
             'body' => implode($this->faker->paragraphs(6)),
