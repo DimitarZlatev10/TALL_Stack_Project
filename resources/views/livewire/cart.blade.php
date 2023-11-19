@@ -1,4 +1,4 @@
-<div>
+<div wire:init='updateCart'>
     <section class="flex items-center bg-stone-200 h-fit font-poppins dark:bg-gray-700 ">
         <div class="justify-center flex-1 px-4 py-6 mx-auto max-w-7xl lg:py-4 md:px-6">
             <div class="p-8 bg-gray-50 dark:bg-gray-800">

@@ -9,23 +9,22 @@ use Livewire\Component;
 #[Title('Your Cart')]
 class Cart extends Component
 {
-    // public $cartItems;
+    public $cartItems;
 
-    // public function mount()
-    // {
-    //     $this->updateCart();
-    // }
+    public function mount()
+    {
+        $this->updateCart();
+    }
 
-    // public function updateCart()
-    // {
-    //     $this->cartItems = CartModel::with('watch')->where('user_id', auth()->user()->id)->get();
-    // }
+    public function updateCart()
+    {
+        $this->cartItems = CartModel::with('watch')->where('user_id', auth()->user()->id)->get();
+    }
 
     public function render()
     {
-        // $this->cartItems = CartModel::with('watch')->where('user_id', auth()->user()->id)->get();
         return view('livewire.cart', [
-            'cartItems' => CartModel::with('watch')->where('user_id', auth()->user()->id)->get(),
+            // 'cartItems' => CartModel::with('watch')->where('user_id', auth()->user()->id)->get(),
         ]);
     }
 }

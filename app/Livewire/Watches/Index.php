@@ -56,7 +56,6 @@ class Index extends Component
             ]);
         } else {
             return view('livewire.watches.index', [
-                $this->resetPage(),
                 'watches' => Watch::orderBy('price', $this->sortByPrice)
                     ->where('title', 'like', '%' . $this->search . '%')
                     ->whereRelation('category', 'name', $this->category)

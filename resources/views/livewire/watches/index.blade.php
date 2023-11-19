@@ -32,7 +32,7 @@
                         <option value="desc">Highest Price</option>
                     </select>
 
-                    <select wire:model.live='category'
+                    <select wire:change='resetPages' wire:model.live='category'
                         class="block w-44 px-4 py-3 mr-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option value='' selected>Choose a brand</option>
                         @foreach ($categories as $category)

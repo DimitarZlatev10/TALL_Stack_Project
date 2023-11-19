@@ -14,13 +14,17 @@ class Show extends Component
 
     public function mount()
     {
+        $this->isAlreadyAdded();
+    }
+
+    public function isAlreadyAdded()
+    {
         if (auth()->user()) {
             $this->alreadyAdded = Cart::where('user_id', auth()->user()->id)
                 ->where('watch_id', $this->watch->id)
                 ->first();
         }
     }
-
     public function addToCart()
     {
         Cart::create([
